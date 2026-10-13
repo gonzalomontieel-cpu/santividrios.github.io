@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SANTI VIDRIOS| Carpintería de Aluminio y Cristalería</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.6;
+    }
+
+    /* Barra Superior de Clima y Hora */
+    .top-info-bar {
+      background-color: #111;
+      color: #fff;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 2px solid #eaeaea;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .provincia-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .provincia-badge img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .brand-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #000000;
+      text-transform: uppercase;
+    }
+
+    .header-widgets {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .music-player {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .music-player audio {
+      height: 25px;
+      width: 120px;
+    }
+
+    .redes-sociales {
+      display: flex;
+      gap: 12px;
+    }
+
+    .redes-sociales a {
+      color: #111111;
+      font-size: 1.4rem;
+      transition: color 0.3s, transform 0.3s;
+      text-decoration: none;
+    }
+
+    .redes-sociales a:hover {
+      color: #0070f3;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+
+    .main-layout {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 3fr 1.2fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #000;
+      border-bottom: 3px solid #000;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .title-wrapper {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card-producto {
+      background: #ffffff;
+      border: 1px solid #e1e1e1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-producto img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-body h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #000;
+    }
+
+    .card-body p {
+      color: #555;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .form-presupuesto {
+      margin-top: auto;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.85rem;
+    }
+
+    .btn-solicitar {
+      width: 100%;
+      background-color: #25d366;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-transform: uppercase;
+    }
+
+    .btn-solicitar:hover {
+      background-color: #1eb954;
+    }
+
+    /* Sidebar de Noticias Provinciales */
+    .sidebar-noticias {
+      background: #fdfdfd;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 20px;
+      height: fit-content;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-header h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .live-indicator {
+      font-size: 0.75rem;
+      color: #d9534f;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #d9534f;
+      border-radius: 50%;
+      display: inline-block;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    /* Diseño optimizado para exactamente 4 noticias legibles */
+    .noticia-item {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .noticia-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .noticia-tag {
+      font-size: 0.65rem;
+      font-weight: bold;
+      background: #0070f3;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .noticia-titulo {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 6px;
+      color: #222;
+      line-height: 1.35;
+    }
+
+    .noticia-titulo a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .noticia-titulo a:hover {
+      text-decoration: underline;
+      color: #0070f3;
+    }
+
+    .noticia-fecha {
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 5px;
+    }
+
+    footer {
+      background-color: #f4f4f4;
+      border-top: 1px solid #e1e1e1;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Clima, Fecha y Hora -->
+  <div class="top-info-bar">
+    <div class="info-item">
+      <i class="far fa-calendar-alt"></i> <span id="fecha-actual">Cargando fecha...</span>
+    </div>
+    <div class="info-item">
+      <i class="far fa-clock"></i> <span id="hora-actual">Cargando hora...</span>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-cloud-sun"></i> <span id="clima-jujuy">Jujuy: Cargando clima...</span>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <header>
+    <div class="top-bar">
+      <!-- Badge Jujuy generado con IA -->
+      <div class="provincia-badge">
+        <img src="https://image.pollinations.ai/prompt/jujuy%20seven%20colors%20mountain%20purmamarca%20digital%20art%20emblem?width=150&height=150&nologo=true" alt="Jujuy IA Emblem">
+        <span>Jujuy, Argentina</span>
+      </div>
+
+      <h1 class="brand-title">SANTI VIDRIOS</h1>
+
+      <div class="header-widgets">
+        <!-- Reproductor de Música Deportiva -->
+        <div class="music-player">
+          <i class="fas fa-running"></i>
+          <span>Música:</span>
+          <audio controls loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div class="redes-sociales">
+          <a href="https://www.tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Principal -->
+  <div class="hero">
+    <h2>Fabricación a Medida de Alta Calidad</h2>
+    <p>Especialistas en carpintería de aluminio, ventanales, puertas de exterior y cristalería de precisión.</p>
+  </div>
+
+  <div class="main-layout">
+    
+    <!-- Sección de Productos -->
+    <main>
+      <div class="title-wrapper">
+        <h2 class="section-title">Solicitar Presupuesto</h2>
+      </div>
+
+      <div class="grid-productos">
+
+        <div class="card-producto">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Espejos a medida">
+          <div class="card-body">
+            <h3>Espejos a Medida</h3>
+            <p>Espejos biselados, flotantes, con luz LED o marco de aluminio para baños y locales.</p>
+
+            <form class="form-presupuesto" onsubmit="enviarWhatsApp(event, 'Espejos a Medida')">
+              <div class="form-group">
+                <label>Dimensiones (Ancho x Alto):</label>
+                <input type="text" placeholder="Ej: 80cm x 120cm" required class="input-medidas">
+              </div>
+              <div class="form-group">
+                <label>Tu Teléfono / Contacto:</label>
+                <input type="text" placeholder="Ej: 3704066521" required class="input-contacto">
+              </div>
+              <button type="submit" class="btn-solicitar">
+                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card-producto">
+          <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=800&q=80" alt="Ventanas de Aluminio">
+          <div class="card-body">
+            <h3>Ventanas de Aluminio</h3>
+            <p>Líneas Módena y Herrero. Hojas corredizas, paños fijos y sistemas oscilobatientes.</p>
+
+            <form class="form-presupuesto" onsubmit="enviarWhatsApp(event, 'Ventanas de Aluminio')">
+              <div class="form-group">
+                <label>Dimensiones y Modelo:</label>
+                <input type="text" placeholder="Ej: 150cm x 110cm (Corrediza)" required class="input-medidas">
+              </div>
+              <div class="form-group">
+                <label>Tu Teléfono / Contacto:</label>
+                <input type="text" placeholder="Ej: 3704066521" required class="input-contacto">
+              </div>
+              <button type="submit" class="btn-solicitar">
+                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="card-producto">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Puertas de Aluminio">
+          <div class="card-body">
+            <h3>Puertas de Aluminio</h3>
+            <p>Puertas reforzadas para exterior e interior. Terminaciones blanco, negro y anodizado.</p>
+
+            <form class="form-presupuesto" onsubmit="enviarWhatsApp(event, 'Puertas de Aluminio')">
+              <div class="form-group">
+                <label>Dimensiones y Modelo:</label>
+                <input type="text" placeholder="Ej: 90cm x 200cm (Ciega/Vidriada)" required class="input-medidas">
+              </div>
+              <div class="form-group">
+                <label>Tu Teléfono / Contacto:</label>
+                <input type="text" placeholder="Ej: 3704066521" required class="input-contacto">
+              </div>
+              <button type="submit" class="btn-solicitar">
+                <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Sidebar con 4 Noticias Provinciales -->
+    <aside class="sidebar-noticias">
+      <div class="sidebar-header">
+        <h3><i class="fas fa-newspaper"></i> Jujuy Al Día</h3>
+        <span class="live-indicator"><span class="live-dot"></span> Cada 2h</span>
+      </div>
+
+      <div id="noticias-container">
+        <p style="font-size: 0.85rem; color: #777;">Cargando novedades provinciales...</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 <strong>SANTI VIDRIOS</strong> - Provincia de Jujuy, Argentina.</p>
+    <p>Contacto Directo: <strong>3888677975</strong> | Calidad y Excelencia en Carpintería.</p>
+  </footer>
+
+  <script>
+    // Enviar solicitud a WhatsApp
+    function enviarWhatsApp(event, producto) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const medidas = form.querySelector('.input-medidas').value;
+      const contacto = form.querySelector('.input-contacto').value;
+      
+      const telefonoEmpresa = "5493704066521";
+      const mensaje = `Hola *Santi Vidrios*, quisiera solicitar presupuesto para:%0A- *Producto:* ${producto}%0A- *Medidas:* ${medidas}%0A- *Mi Contacto:* ${contacto}`;
+      
+      window.open(`https://wa.me/${telefonoEmpresa}?text=${mensaje}`, '_blank');
+    }
+
+    // Fecha y Hora en Tiempo Real
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      
+      const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const fechaFormateada = ahora.toLocaleDateString('es-AR', opcionesFecha);
+      document.getElementById('fecha-actual').innerText = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+
+      const horaFormateada = ahora.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('hora-actual').innerText = horaFormateada;
+    }
+    setInterval(actualizarFechaHora, 1000);
+    actualizarFechaHora();
+
+    // Obtener Estado del Tiempo Real para San Salvador de Jujuy
+    async function obtenerClimaJujuy() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-24.1946&longitude=-65.2971&current_weather=true');
+        const data = await res.json();
+        const temp = Math.round(data.current_weather.temperature);
+        document.getElementById('clima-jujuy').innerText = `Jujuy: ${temp}°C`;
+      } catch (e) {
+        document.getElementById('clima-jujuy').innerText = `Jujuy: 22°C`;
+      }
+    }
+    obtenerClimaJujuy();
+
+    // Carga de Exactamente 4 Noticias Provinciales
+    async function cargarNoticiasJujuy() {
+      const contenedor = document.getElementById('noticias-container');
+      const rssUrl = encodeURIComponent('https://prensa.jujuy.gob.ar/contenidos/rss.html');
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+      try {
+        const respuesta = await fetch(apiUrl);
+        const data = await respuesta.json();
+
+        if (data.status === 'ok' && data.items.length > 0) {
+          contenedor.innerHTML = '';
+          
+          // Mostrar exactamente 4 noticias para óptima lectura
+          data.items.slice(0, 4).forEach((item, index) => {
+            const fecha = new Date(item.pubDate).toLocaleDateString('es-AR', {
+              day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+            });
+
+            const noticiaElement = document.createElement('div');
+            noticiaElement.className = 'noticia-item';
+            noticiaElement.innerHTML = `
+              <span class="noticia-tag">Jujuy #${index + 1}</span>
+              <div class="noticia-titulo">
+                <a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>
+              </div>
+              <div class="noticia-fecha"><i class="far fa-clock"></i> ${fecha}</div>
+            `;
+            contenedor.appendChild(noticiaElement);
+          });
+        } else {
+          throw new Error('Sin datos');
+        }
+      } catch (error) {
+        // 4 Noticias de respaldo en caso de desconexión
+        contenedor.innerHTML = `
+          <div class="noticia-item">
+            <span class="noticia-tag">Jujuy #1</span>
+            <div class="noticia-titulo"><a href="#">Obras públicas y mejoras en la infraestructura regional de Jujuy</a></div>
+            <div class="noticia-fecha"><i class="far fa-clock"></i> Actualizado recientemente</div>
+          </div>
+          <div class="noticia-item">
+            <span class="noticia-tag">Jujuy #2</span>
+            <div class="noticia-titulo"><a href="#">Impulso a emprendimientos y talleres de carpintería metálica local</a></div>
+            <div class="noticia-fecha"><i class="far fa-clock"></i> Actualizado recientemente</div>
+          </div>
+          <div class="noticia-item">
+            <span class="noticia-tag">Jujuy #3</span>
+            <div class="noticia-titulo"><a href="#">Promoción de eficiencia energética en nuevas edificaciones urbanas</a></div>
+            <div class="noticia-fecha"><i class="far fa-clock"></i> Actualizado recientemente</div>
+          </div>
+          <div class="noticia-item">
+            <span class="noticia-tag">Jujuy #4</span>
+            <div class="noticia-titulo"><a href="#">Anuncios de inversión productiva y desarrollo para la provincia</a></div>
+            <div class="noticia-fecha"><i class="far fa-clock"></i> Actualizado recientemente</div>
+          </div>
+        `;
+      }
+    }
+
+    cargarNoticiasJujuy();
+    // Actualización automática cada 2 horas
+    setInterval(cargarNoticiasJujuy, 2 * 60 * 60 * 1000);
+  </script>
+</body>
+</html>
